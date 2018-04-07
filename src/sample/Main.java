@@ -1,81 +1,51 @@
 package sample;
 
+import DAO.AddressDAO;
+import DAO.ConnectionDAO;
+import DAO.InvoiceDAO;
+import DAO.SQLExecutor;
+import entities.Invoice;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.sql.*;
-import java.util.Scanner;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Fakturaleser");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
 
 
-    public static void CreateAndConnectToDB(String dbname) throws FileNotFoundException, SQLException {
-        Connection conn = null;
-
-        try {
-            String url = "jdbc:sqlite:C:/SQLite/db/" + dbname;
-            conn = DriverManager.getConnection(url);
-            System.out.println("Connection established!");
-            System.out.println(conn.getMetaData());
-        }
-        catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-
-        File schema = new File( "oblig3v1_database.sql");
-        InputStream in = new FileInputStream(schema);
-        importSQL(conn,in);
-
-
-    }
-
-    public static void importSQL(Connection conn, InputStream in) throws SQLException
-    {
-        Scanner s = new Scanner(in);
-        s.useDelimiter("(;(\r)?\n)|(--\n)");
-        Statement st = null;
-        try
-        {
-            st = conn.createStatement();
-            while (s.hasNext())
-            {
-                String line = s.next();
-                if (line.startsWith("/*!") && line.endsWith("*/"))
-                {
-                    int i = line.indexOf(' ');
-                    line = line.substring(i + 1, line.length() - " */".length());
-                }
-
-                if (line.trim().length() > 0)
-                {
-                    st.execute(line);
-                }
-            }
-        }
-        finally
-        {
-            if (st != null) st.close();
-        }
-    }
-
     public static void main(String[] args) throws FileNotFoundException, SQLException {
-        boolean beenRun = false;
         launch(args);
-        CreateAndConnectToDB("Test4.db");
+        ConnectionDAO connDao = new ConnectionDAO("ryddig.db");
+        Connection conn = connDao.getConnection();
+        String fileToRead =  "oblig3v1_database.sql";
+        SQLExecutor readSql = new SQLExecutor(fileToRead, conn);
+
+
+        //Henter ut alle invoicene og skriver de ut
+        InvoiceDAO invoices = new InvoiceDAO(conn);
+        List<Invoice> invoicesList = invoices.createInvoiceEntities();
+        Iterator it = invoicesList.iterator();
+
+        while(it.hasNext()){
+            Invoice inv = (Invoice)it.next();
+            System.out.println("Invoice id: "+ inv.getId());
+            System.out.println("Customer id: " + inv.getCustId());
+            System.out.println("Dato: " +inv.getDate());
+        }
 
     }
 
