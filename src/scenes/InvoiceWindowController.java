@@ -1,6 +1,7 @@
 package scenes;
 
 import DAO.*;
+import entities.Address;
 import entities.Customer;
 import entities.Invoice;
 import entities.Product;
@@ -63,6 +64,10 @@ public class InvoiceWindowController {
             customerNameLbl.setText(cust.getName());
             customerPhoneLbl.setText(cust.getPhoneNr());
 
+            // Henter ut adressen til kunden på fakturaen
+            AddressDAO addDAO = new AddressDAO(conn);
+            Address address = addDAO.createAddressEntityFromId(cust.getAdressId());
+            customerAddressLbl.setText(address.getStreetName() +" " + address.getStreetNumber() + "\n" + address.getPostalCode() + " " + address.getPostalTown());
 
             //henter ut ID til produktene kjøpt av kunden
             InvoiceItemsDAO invoiceItemsDAO = new InvoiceItemsDAO(conn);
