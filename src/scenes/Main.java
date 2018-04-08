@@ -1,6 +1,5 @@
-package sample;
+package scenes;
 
-import DAO.AddressDAO;
 import DAO.ConnectionDAO;
 import DAO.InvoiceDAO;
 import DAO.SQLExecutor;
@@ -14,13 +13,12 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Scenes/sample.fxml"));
         primaryStage.setTitle("Fakturaleser");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -46,7 +44,7 @@ public class Main extends Application {
             System.out.println("Customer id: " + inv.getCustId());
             System.out.println("Dato: " +inv.getDate());
         }
-
+        conn.close();
     }
 
 

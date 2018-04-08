@@ -4,9 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-<VBox fx:controller="sample.Controller"
+<VBox fx:controller="scenes.sampleController"
       xmlns:fx="http://javafx.com/fxml" alignment="center">
-<Button fx:id="fakturaButton" text="Last faktura (Deloppgave 2)" onAction="#loadFaktura"/>
-    <Label text="Dato: "></Label>
-        <TextField fx:id="datoText"></TextField>
+    <Button fx:id="fakturaButton" text="Last faktura (Deloppgave 2)" onAction="#openInvoiceWindow"/>
+
 </VBox>

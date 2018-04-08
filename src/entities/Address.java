@@ -7,12 +7,8 @@ public class Address {
     String postalCode;
     String postalTown;
 
-    public Address(int id, String sName, String sNum, String pCode, String pTown){
-        this.id = id;
-        this.streetName = sName;
-        this.streetNumber = sNum;
-        this.postalCode = pCode;
-        this.postalTown = pTown;
+    public Address(){
+
     }
 
     public int getId() {
@@ -33,5 +29,26 @@ public class Address {
 
     public String getPostalTown() {
         return postalTown;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setPostalTown(String postalTown) {
+        this.postalTown = postalTown;
     }
 }
