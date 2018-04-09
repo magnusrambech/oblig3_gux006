@@ -53,12 +53,12 @@ public class SQLExecutor {
         }
     }
 
-    public boolean alreadyFilled() throws SQLException {
-        String sql = "SELECT * FROM address,category,customer,invoice,invoice_items,product";
-        Statement statement = conn.createStatement();
-        ResultSet rs = statement.executeQuery(sql);
-
-        if(!rs.next()){
+    public boolean alreadyFilled(){
+        try{
+            String sql = "SELECT * FROM address,category,customer,invoice,invoice_items,product";
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+        }catch (SQLException e){
             return false;
         }
         return true;
