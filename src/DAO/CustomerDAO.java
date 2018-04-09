@@ -5,6 +5,7 @@ import entities.Customer;
 import entities.Invoice;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,6 +57,48 @@ public class CustomerDAO {
             statement.executeUpdate();
             System.out.println("Lagt til i database!");
 
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Customer> findAllCustomers(){
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM customer");
+            while(rs.next()){
+                Customer currCust = new Customer();
+                currCust.setName(rs.getString("customer_name"));
+                currCust.setCustId(Integer.parseInt(rs.getString("customer_id")));
+                currCust.setAdressId(Integer.parseInt(rs.getString("address")));
+                currCust.setPhoneNr(rs.getString("phone_number"));
+                currCust.setBillingAcc(rs.getString("billing_account"));
+                customers.add(currCust);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+        return customers;
+    }
+
+    public void alterCustomer(Customer c){
+        String sql = "UPDATE customer  SET " +
+                "customer_name = ? , " +
+                "address = ? , " +
+                "phone_number = ? , " +
+                "billing_account = ? WHERE customer_id="+c.getCustId();
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1,c.getName());
+            preparedStatement.setInt(2,c.getAdressId());
+            preparedStatement.setString(3,c.getPhoneNr());
+            preparedStatement.setString(4,c.getBillingAcc());
+
+            preparedStatement.executeUpdate();
+            System.out.println("Updated customer with ID and name" + c.getCustId() + " " + c.getName());
         }catch (SQLException e){
             e.printStackTrace();
         }

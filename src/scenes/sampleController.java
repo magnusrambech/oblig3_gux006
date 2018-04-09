@@ -37,6 +37,8 @@ public class sampleController {
         }
 
     }
+
+    //Vinduer for deloppgave 2
     public void openCreateCustomerWindow(ActionEvent actionEvent){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateCustomerWindow.fxml"));
@@ -110,7 +112,77 @@ public class sampleController {
             e.printStackTrace();
             System.out.println("Can't load new window");
         }
-        System.out.println("test4");
     }
 
+    //Vinduer for deloppgave 3
+    public void openEditCustomersWindow(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditCustomerWindow.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Customers");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
+    }
+    public void openEditAddressesWindow(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAddressesWindow.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Addresses");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
+    }
+    public void openEditProductsWindow(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProductsWindow.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Products");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
+    }
+    public void openEditCategoriesWindow(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditCategoriesWindow.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Categories");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
+    }
+    public void openEditInvoicesWindow(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditInvoicesWindow.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Invoices");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
+    }
 }
