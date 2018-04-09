@@ -4,9 +4,8 @@ public class InvoiceItem {
     int invoiceId;
     int productId;
 
-    public InvoiceItem(int invoiceId, int productId) {
-        this.invoiceId = invoiceId;
-        this.productId = productId;
+    public InvoiceItem() {
+
     }
 
     public int getInvoiceId() {
@@ -15,5 +14,13 @@ public class InvoiceItem {
 
     public int getProductId() {
         return productId;
+    }
+
+    public void setInvoiceId(int invoiceId) {
+        this.invoiceId = invoiceId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }

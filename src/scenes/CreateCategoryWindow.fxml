@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="220.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.CreateCategoryWindowController">
+    <children>
+        <Label layoutX="72.0" layoutY="27.0" prefHeight="29.0" prefWidth="231.0" text="Create new Category">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="45.0" layoutY="97.0" text="Category ID" />
+        <Label layoutX="45.0" layoutY="129.0" text="Category Name" />
+        <TextField fx:id="newCatIdFld" layoutX="187.0" layoutY="93.0" />
+        <TextField fx:id="newCatNameFld" layoutX="187.0" layoutY="125.0" />
+        <Button layoutX="154.0" layoutY="176.0" mnemonicParsing="false" onAction="#createCategory" prefHeight="25.0" prefWidth="67.0" text="Create" />
+    </children>
+</AnchorPane>

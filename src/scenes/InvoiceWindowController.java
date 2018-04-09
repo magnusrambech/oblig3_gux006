@@ -41,8 +41,7 @@ public class InvoiceWindowController {
     private int[] invoiceIDs;
 
     public InvoiceWindowController() throws FileNotFoundException, SQLException {
-        ConnectionDAO connDao = new ConnectionDAO("ryddig.db");
-        conn = connDao.getConnection();
+        conn = Main.conn;
     }
 
     @FXML
@@ -59,7 +58,7 @@ public class InvoiceWindowController {
     }
 
     public void loadFaktura(int invoiceId) throws FileNotFoundException, SQLException {
-
+        summaryBox.getChildren().clear();
         InvoiceDAO invoiceDAO = new InvoiceDAO(conn);
         Invoice inv = invoiceDAO.createInvoiceFromId(invoiceId);
 
@@ -113,6 +112,8 @@ public class InvoiceWindowController {
                 HBox newBox = new HBox();
 
 
+                prodNameLbl.setPrefWidth(280);
+                prodDesc.setPrefWidth(150);
                 newBox.getChildren().add(prodNameLbl);
                 newBox.getChildren().add(prodDesc);
                 newBox.getChildren().add(prodPrice);
@@ -152,7 +153,17 @@ public class InvoiceWindowController {
         }catch(ArrayIndexOutOfBoundsException e){
             System.out.println("NO MORE FAKTURAS");
             currentInvoice--;
-            System.out.println("Viser fortsatt faktura på på index 0" + currentInvoice);
+            System.out.println("Viser fortsatt faktura på på index " + currentInvoice);
+        }
+    }
+    public void loadPrevInvoice() throws FileNotFoundException, SQLException {
+        try{
+            currentInvoice--;
+            loadFaktura(invoiceIDs[currentInvoice]);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("NO MORE FAKTURAS");
+            currentInvoice++;
+            System.out.println("Viser fortsatt faktura på på index " + currentInvoice);
         }
     }
 }

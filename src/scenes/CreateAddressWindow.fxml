@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="321.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.CreateAddressWindowController">
+    <children>
+        <Label layoutX="72.0" layoutY="27.0" prefHeight="29.0" prefWidth="231.0" text="Create new address">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="45.0" layoutY="97.0" text="Address ID" />
+        <Label layoutX="45.0" layoutY="129.0" text="Street Number" />
+        <Label layoutX="45.0" layoutY="163.0" text="Street Name" />
+        <Label layoutX="45.0" layoutY="198.0" prefHeight="17.0" prefWidth="67.0" text="Postal Code" />
+        <Label layoutX="45.0" layoutY="234.0" prefHeight="17.0" prefWidth="87.0" text="Postal Town" />
+        <TextField fx:id="newAddIdFld" layoutX="187.0" layoutY="93.0" />
+        <TextField fx:id="newAddStNumFld" layoutX="187.0" layoutY="125.0" />
+        <TextField fx:id="newAddNameFld" layoutX="187.0" layoutY="159.0" />
+        <TextField fx:id="newAddPCodeFld" layoutX="187.0" layoutY="194.0" />
+        <TextField fx:id="newAddPTownFld" layoutX="187.0" layoutY="230.0" />
+        <Button layoutX="154.0" layoutY="271.0" mnemonicParsing="false" onAction="#createAddress" prefHeight="25.0" prefWidth="67.0" text="Create" />
+    </children>
+</AnchorPane>

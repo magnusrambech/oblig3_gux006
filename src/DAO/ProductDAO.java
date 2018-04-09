@@ -2,10 +2,7 @@ package DAO;
 
 import entities.Product;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ProductDAO {
@@ -33,5 +30,28 @@ public class ProductDAO {
             e.printStackTrace();
         }
         return currProd;
+    }
+    public void insertNewProduct(Product p){
+        String name = p.getName();
+        int id = p.getId();
+        String desc = p.getDesc();
+        float price = p.getPrice();
+        int cat = p.getCategory();
+
+        try{
+            String sql = "INSERT OR IGNORE INTO product (product_id, product_name, description, price, category)" +
+                    "VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1,id);
+            statement.setString(2, name);
+            statement.setString(3,desc);
+            statement.setFloat(4,price);
+            statement.setInt(5,cat);
+            statement.executeUpdate();
+            System.out.println("Lagt til i database!");
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

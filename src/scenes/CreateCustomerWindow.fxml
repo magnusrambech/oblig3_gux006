@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="scenes.CreateCustomerWindow"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="321.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.CreateCustomerWindowController">
+   <children>
+      <Label layoutX="72.0" layoutY="27.0" prefHeight="29.0" prefWidth="231.0" text="Create new customer">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="97.0" text="Customer ID" />
+      <Label layoutX="45.0" layoutY="129.0" text="Name" />
+      <Label layoutX="45.0" layoutY="163.0" text="Address ID" />
+      <Label layoutX="45.0" layoutY="198.0" prefHeight="17.0" prefWidth="67.0" text="Phone" />
+      <Label layoutX="45.0" layoutY="234.0" prefHeight="17.0" prefWidth="87.0" text="Billing Account" />
+      <TextField fx:id="newCustIdFld" layoutX="187.0" layoutY="93.0" />
+      <TextField fx:id="newCustNameFld" layoutX="187.0" layoutY="125.0" />
+      <TextField fx:id="newCustAddressFld" layoutX="187.0" layoutY="159.0" />
+      <TextField fx:id="newCustPhoneFld" layoutX="187.0" layoutY="194.0" />
+      <TextField fx:id="newCustBillAccFld" layoutX="187.0" layoutY="230.0" />
+      <Button onAction="#createCustomer" layoutX="154.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Create" />
+   </children>
 </AnchorPane>

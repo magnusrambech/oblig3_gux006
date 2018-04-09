@@ -20,7 +20,6 @@ public class ConnectionDAO implements ConnectionDAOIF{
             String url = "jdbc:sqlite:C:/SQLite/db/" + dbname;
             conn = DriverManager.getConnection(url);
             System.out.println("Connection established!");
-            System.out.println(conn.getMetaData());
         }
         catch (SQLException e){
             System.out.println(e.getMessage());

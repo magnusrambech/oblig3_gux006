@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -21,6 +22,10 @@ public class SQLExecutor {
     }
 
     public void createDBfromFile() throws SQLException {
+        if(alreadyFilled()){
+            System.out.println("Tables already inserted");
+            return;
+        }
         Scanner s = new Scanner(in);
         s.useDelimiter("(;(\r)?\n)|(--\n)");
         Statement st = null;
@@ -46,5 +51,16 @@ public class SQLExecutor {
         {
             if (st != null) st.close();
         }
+    }
+
+    public boolean alreadyFilled() throws SQLException {
+        String sql = "SELECT * FROM address,category,customer,invoice,invoice_items,product";
+        Statement statement = conn.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+
+        if(!rs.next()){
+            return false;
+        }
+        return true;
     }
 }
