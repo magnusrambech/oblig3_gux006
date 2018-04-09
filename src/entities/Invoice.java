@@ -6,7 +6,7 @@ public class Invoice {
     String date;
 
     public Invoice() {
-
+        this.id = -1;
     }
 
     public int getId() {

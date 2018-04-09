@@ -51,5 +51,6 @@
       <Label fx:id="customerNameLbl" layoutX="425.0" layoutY="154.0" text="Kundenavn" />
       <Label fx:id="customerPhoneLbl" layoutX="435.0" layoutY="180.0" text="Telefon" />
       <Label fx:id="customerAddressLbl" layoutX="434.0" layoutY="205.0" text="Adresse" />
+      <Button fx:id="nextFakturaButton" layoutX="483.0" layoutY="23.0" mnemonicParsing="false" text="Neste" onAction="#loadNextInvoice" />
    </children>
 </AnchorPane>

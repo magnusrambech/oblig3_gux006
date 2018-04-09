@@ -25,7 +25,7 @@ import java.util.List;
 
 public class InvoiceWindowController {
 
-    public Button fakturaButton;
+    public Button nextFakturaButton;
     public Label invoiceIdText;
     public Label customerIdText;
     public Label datoText;
@@ -36,24 +36,36 @@ public class InvoiceWindowController {
     public Label customerAddressLbl;
 
 
-    @FXML
-    protected void initialize() throws FileNotFoundException, SQLException {
-            loadFaktura();
+    public Connection conn;
+    private int currentInvoice;
+    private int[] invoiceIDs;
+
+    public InvoiceWindowController() throws FileNotFoundException, SQLException {
+        ConnectionDAO connDao = new ConnectionDAO("ryddig.db");
+        conn = connDao.getConnection();
     }
 
-    public void loadFaktura() throws FileNotFoundException, SQLException {
+    @FXML
+    protected void initialize() throws FileNotFoundException, SQLException {
+        findInvoiceIds();
+        if(invoiceIDs != null){
+            loadFaktura(invoiceIDs[0]);
+            currentInvoice = 0;
+        }
+        else{
+            System.out.println("Ingen fakturaer å vise!");
+        }
 
-        //henter ut invoicene
-        ConnectionDAO connDao = new ConnectionDAO("ryddig.db");
-        Connection conn = connDao.getConnection();
-        InvoiceDAO invoices = new InvoiceDAO(conn);
-        List<Invoice> invoicesList = invoices.createInvoiceEntities();
-        Iterator it = invoicesList.iterator();
+    }
 
-        if (it.hasNext()) {
+    public void loadFaktura(int invoiceId) throws FileNotFoundException, SQLException {
+
+        InvoiceDAO invoiceDAO = new InvoiceDAO(conn);
+        Invoice inv = invoiceDAO.createInvoiceFromId(invoiceId);
+
+        if (inv.getId() > 0) {
 
             //henter ut data fra faktura-tabellen
-            Invoice inv = (Invoice) it.next();
             datoText.setText(inv.getDate());
             invoiceIdText.setText(String.valueOf(inv.getId()));
             customerIdText.setText(String.valueOf(inv.getCustId()));
@@ -113,6 +125,34 @@ public class InvoiceWindowController {
         }
         else {
             System.out.println("Ingen faktura funnet...");
+        }
+    }
+
+    public void findInvoiceIds(){
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        InvoiceDAO idDAO = new InvoiceDAO(conn);
+        List<Invoice> invoices = idDAO.createInvoiceEntities();
+        Iterator iterator = invoices.iterator();
+        while(iterator.hasNext()){
+            Invoice invoice = (Invoice)iterator.next();
+            ids.add(invoice.getId());
+        }
+        int[] temp = new int[ids.size()];
+        for (int i = 0; i < ids.size(); i++) {
+            temp[i] = ids.get(i).intValue();
+        }
+        invoiceIDs = temp;
+
+    }
+
+    public void loadNextInvoice() throws FileNotFoundException, SQLException {
+        try{
+            currentInvoice++;
+            loadFaktura(invoiceIDs[currentInvoice]);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("NO MORE FAKTURAS");
+            currentInvoice--;
+            System.out.println("Viser fortsatt faktura på på index 0" + currentInvoice);
         }
     }
 }
