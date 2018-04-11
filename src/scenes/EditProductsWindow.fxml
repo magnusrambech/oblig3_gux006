@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="scenes.EditProductsWindowController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="628.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.EditProductsWindowController">
+    <children>
+        <ScrollPane layoutX="23.0" layoutY="112.0" prefHeight="286.0" prefWidth="560.0">
+            <content>
+                <VBox fx:id="productVBox" prefHeight="283.0" prefWidth="555.0" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        <Label layoutX="186.0" layoutY="22.0" text="Edit Products">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="30.0" layoutY="89.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <Label layoutX="59.0" layoutY="89.0" text="Product name" />
+        <Label layoutX="205.0" layoutY="89.0" text="Product description" />
+        <Label layoutX="371.0" layoutY="89.0" text="Price" />
+        <Label layoutX="470.0" layoutY="89.0" text="Category" />
+        <Label layoutX="197.0" layoutY="439.0" text="Product name" />
+        <Label layoutX="167.0" layoutY="476.0" text="Product description" />
+        <Label layoutX="271.0" layoutY="410.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <Label layoutX="233.0" layoutY="514.0" text="Price" />
+        <Label layoutX="233.0" layoutY="548.0" text="Category" />
+        <Label fx:id="updateIdLbl" layoutX="310.0" layoutY="410.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <TextField fx:id="updateNameLbl" layoutX="305.0" layoutY="435.0" />
+        <TextField fx:id="updateDescLbl" layoutX="305.0" layoutY="472.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="updatePriceLbl" layoutX="305.0" layoutY="510.0" prefHeight="25.0" prefWidth="66.0" />
+        <TextField fx:id="updateCatLbl" layoutX="305.0" layoutY="544.0" prefHeight="25.0" prefWidth="66.0" />
+        <Button layoutX="283.0" layoutY="582.0" mnemonicParsing="false" onAction="#commitChanges" text="Update" />
+    </children>
 </AnchorPane>

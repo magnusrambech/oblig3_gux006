@@ -25,14 +25,15 @@ public class EditCustomerWindowController {
 
 
     Connection conn = Main.conn;
-    CustomerDAO custDAO;
+    CustomerDAO custDAO = new CustomerDAO(conn);
 
     public void initialize(){
         listAllCustomers();
     }
     public void listAllCustomers(){
+        //Nullstiller listen til å begynne med
         customerVBox.getChildren().clear();
-        custDAO = new CustomerDAO(conn);
+        //Finner alle customers
         ArrayList<Customer> customers = custDAO.findAllCustomers();
         for(Customer e:customers){
             listCustomer(e);
@@ -91,6 +92,8 @@ public class EditCustomerWindowController {
         customer.setAdressId(Integer.parseInt(updateAddressLbl.getText()));
         customer.setPhoneNr(updatePhoneLbl.getText());
         customer.setBillingAcc(updateBillingLbl.getText());
+
+        //Legger til endringene i databasen og laster listen på nytt
         custDAO.alterCustomer(customer);
         listAllCustomers();
     }

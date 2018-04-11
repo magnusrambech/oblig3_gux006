@@ -54,4 +54,46 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+    public ArrayList<Product> findAllProducts(){
+        ArrayList<Product> products = new ArrayList<Product>();
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM product");
+
+            while(rs.next()){
+                Product currProd = new Product();
+                currProd.setId(rs.getInt("product_id"));
+                currProd.setName(rs.getString("product_name"));
+                currProd.setDesc(rs.getString("description"));
+                currProd.setPrice(rs.getFloat("price"));
+                currProd.setCategory(rs.getInt("category"));
+                products.add(currProd);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+    public void alterProduct(Product p){
+        String sql = "UPDATE product SET " +
+                "product_id = ? , " +
+                "product_name = ? , " +
+                "description = ? , " +
+                "price = ? , " +
+                "category = ? WHERE product_id=" + p.getId();
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1,p.getId());
+            preparedStatement.setString(2, p.getName());
+            preparedStatement.setString(3, p.getDesc());
+            preparedStatement.setFloat(4,p.getPrice());
+            preparedStatement.setInt(5, p.getCategory());
+
+            preparedStatement.executeUpdate();
+            System.out.println("Updated product with ID "+ p.getId() );
+        }catch (SQLException e){
+
+        }
+
+    }
 }

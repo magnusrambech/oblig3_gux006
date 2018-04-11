@@ -2,7 +2,9 @@ package DAO;
 
 import entities.Address;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class AddressDAO {
     private Connection conn;
@@ -49,6 +51,49 @@ public class AddressDAO {
             statement.executeUpdate();
             System.out.println("Lagt til i database!");
 
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public ArrayList<Address> findAllAddresses(){
+        ArrayList<Address> addresses = new ArrayList<Address>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT  * FROM address");
+            while(rs.next()){
+                Address currAdd = new Address();
+                currAdd.setId(rs.getInt("address_id"));
+                currAdd.setStreetName(rs.getString("street_name"));
+                currAdd.setStreetNumber(rs.getString("street_number"));
+                currAdd.setPostalCode(rs.getString("postal_code"));
+                currAdd.setPostalTown(rs.getString("postal_town"));
+                addresses.add(currAdd);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return addresses;
+    }
+
+    public void alterAddress(Address a){
+        String sql ="UPDATE address SET " +
+                "address_id = ? , " +
+                "street_number = ? , " +
+                "street_name = ? , " +
+                "postal_code = ? , " +
+                "postal_town = ? WHERE address_id="+a.getId();
+
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, a.getId());
+            preparedStatement.setString(2,a.getStreetNumber());
+            preparedStatement.setString(3,a.getStreetName());
+            preparedStatement.setString(4,a.getPostalCode());
+            preparedStatement.setString(5, a.getPostalTown());
+
+            preparedStatement.executeUpdate();
+            System.out.println("Updated address with ID " +  a.getId());
         }catch (SQLException e){
             e.printStackTrace();
         }
