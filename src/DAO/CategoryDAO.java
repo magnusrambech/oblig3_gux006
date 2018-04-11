@@ -3,6 +3,7 @@ package DAO;
 import entities.Category;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,6 +49,39 @@ public class CategoryDAO {
             e.printStackTrace();
         }
 
+    }
+    public ArrayList<Category> findAllCategories(){
+        ArrayList<Category> categories = new ArrayList<Category>();
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM category");
+            while(rs.next()){
+                Category currCat = new Category();
+                currCat.setId(rs.getInt("category_id"));
+                currCat.setName(rs.getString("category_name"));
+                categories.add(currCat);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return categories;
+    }
+    public void alterCategory(Category c){
+        String sql = "UPDATE category SET " +
+                "category_id = ? , " +
+                "category_name = ? WHERE category_id="+c.getId();
+
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, c.getId());
+            preparedStatement.setString(2, c.getName());
+
+            preparedStatement.executeUpdate();
+            System.out.println("Updated category with ID " + c.getId());
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
 

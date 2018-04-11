@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="scenes.EditCategoriesWindowController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="574.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.EditCategoriesWindowController">
+    <children>
+        <ScrollPane layoutX="160.0" layoutY="130.0" prefHeight="286.0" prefWidth="217.0">
+            <content>
+                <VBox fx:id="categoryVBox" prefHeight="283.0" prefWidth="193.0" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        <Label layoutX="156.0" layoutY="22.0" text="Edit categories">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="178.0" layoutY="98.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <Label layoutX="219.0" layoutY="98.0" text="Category name" />
+        <Label layoutX="166.0" layoutY="477.0" text="Category name" />
+        <Label layoutX="219.0" layoutY="439.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <Label fx:id="updateIdLbl" layoutX="258.0" layoutY="439.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <TextField fx:id="updateNameFld" layoutX="253.0" layoutY="473.0" />
+        <Button layoutX="231.0" layoutY="535.0" mnemonicParsing="false" onAction="#commitChanges" text="Update" />
+    </children>
 </AnchorPane>

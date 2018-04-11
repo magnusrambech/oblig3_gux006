@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="scenes.EditInvoicesWindowController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="574.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.EditInvoicesWindowController">
+    <children>
+        <ScrollPane layoutX="101.0" layoutY="131.0" prefHeight="286.0" prefWidth="315.0">
+            <content>
+                <VBox fx:id="invoiceVBox" prefHeight="283.0" prefWidth="312.0" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        <Label layoutX="156.0" layoutY="22.0" text="Edit invoices">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="113.0" layoutY="98.0" prefHeight="17.0" prefWidth="20.0" text="ID" />
+        <Label layoutX="173.0" layoutY="98.0" text="Customer ID" />
+        <Label layoutX="194.0" layoutY="500.0" text="Date" />
 
+        <TextField fx:id="updateCustomerIdFld" layoutX="233.0" layoutY="457.0" prefHeight="25.0" prefWidth="39.0" />
+        <Button layoutX="231.0" layoutY="535.0" mnemonicParsing="false" onAction="#commitChanges" text="Update" />
+      <Label layoutX="294.0" layoutY="98.0" text="Dato" />
+      <DatePicker fx:id="updateDateFld" layoutX="233.0" layoutY="496.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="152.0" layoutY="461.0" text="Customer ID" />
+      <Label layoutX="207.0" layoutY="433.0" text="ID" />
+      <Label fx:id="updateIdLbl" layoutX="234.0" layoutY="433.0" text="ID" />
+    </children>
 </AnchorPane>

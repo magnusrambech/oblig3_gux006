@@ -39,6 +39,7 @@ public class EditProductsWindowController {
         }
     }
     public void listProduct(Product p){
+        // Lager nye labels for all product info
         Label idLbl = new Label();
         Label nameLbl = new Label();
         Label descLbl = new Label();
@@ -47,13 +48,19 @@ public class EditProductsWindowController {
         Button editBtn = new Button("Edit");
         HBox hBox = new HBox();
 
+        //Setter teksten på labelene
         idLbl.setText(String.valueOf(p.getId()));
         nameLbl.setText(p.getName());
         descLbl.setText(p.getDesc());
         priceLbl.setText(String.valueOf(p.getPrice()));
         catLbl.setText(String.valueOf(p.getCategory()));
 
-
+        //Setter bredden på labelene
+        idLbl.setPrefWidth(20);
+        nameLbl.setPrefWidth(160);
+        descLbl.setPrefWidth(165);
+        priceLbl.setPrefWidth(120);
+        catLbl.setPrefWidth(50);
         //Gir "edit"-knappen en funkjson
         editBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

@@ -1,0 +1,18 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="sample.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+<Button fx:id="fakturaButton" text="Last faktura (Deloppgave 2)" onAction="#loadFaktura"/>
+    <Label text="Dato: "></Label>
+    <TextField fx:id="datoText"></TextField>
+
+    <Label text="Kunde ID: "></Label>
+    <TextField fx:id="customerIdText"></TextField>
+
+    <Label text="Faktura ID: "></Label>
+    <TextField fx:id="invoiceIdText"></TextField>
+</VBox>
