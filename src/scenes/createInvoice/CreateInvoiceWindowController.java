@@ -1,4 +1,4 @@
-package scenes;
+package scenes.createInvoice;
 
 import DAO.InvoiceDAO;
 import DAO.InvoiceItemsDAO;
@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import scenes.Main;
 
 import java.sql.Connection;
 import java.util.ArrayList;

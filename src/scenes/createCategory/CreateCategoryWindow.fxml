@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="220.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.CreateCategoryWindowController">
+<AnchorPane prefHeight="220.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.createCategory.CreateCategoryWindowController">
     <children>
         <Label layoutX="72.0" layoutY="27.0" prefHeight="29.0" prefWidth="231.0" text="Create new Category">
             <font>

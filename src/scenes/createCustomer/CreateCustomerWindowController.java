@@ -1,8 +1,9 @@
-package scenes;
+package scenes.createCustomer;
 
 import DAO.CustomerDAO;
 import entities.Customer;
 import javafx.scene.control.TextField;
+import scenes.Main;
 
 import java.sql.Connection;
 

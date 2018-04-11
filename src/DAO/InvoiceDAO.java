@@ -91,7 +91,6 @@ public class InvoiceDAO {
         return invoices;
     }
     public void alterInvoice(Invoice i){
-        System.out.println(i.getId() +" " + i.getCustId() +" " +  i.getDate() );
         String sql = "UPDATE invoice SET " +
                 "invoice_id = ? , " +
                 "customer = ? , " +

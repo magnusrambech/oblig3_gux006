@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="321.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.CreateProductWindowController">
+<AnchorPane prefHeight="321.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.createProduct.CreateProductWindowController">
     <children>
         <Label layoutX="72.0" layoutY="27.0" prefHeight="29.0" prefWidth="231.0" text="Create new Product">
             <font>

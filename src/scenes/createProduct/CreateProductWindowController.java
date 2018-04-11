@@ -1,9 +1,10 @@
-package scenes;
+package scenes.createProduct;
 
 import DAO.AddressDAO;
 import DAO.ProductDAO;
 import entities.Product;
 import javafx.scene.control.TextField;
+import scenes.Main;
 
 import java.sql.Connection;
 

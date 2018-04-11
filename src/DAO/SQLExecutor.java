@@ -22,10 +22,13 @@ public class SQLExecutor {
     }
 
     public void createDBfromFile() throws SQLException {
+        //Sjekker om databasen allerede er laget. Hviss, return
         if(alreadyFilled()){
             System.out.println("Tables already inserted");
             return;
         }
+
+        //Skriver fra fil til database
         Scanner s = new Scanner(in);
         s.useDelimiter("(;(\r)?\n)|(--\n)");
         Statement st = null;

@@ -1,9 +1,10 @@
-package scenes;
+package scenes.createCategory;
 
 
 import DAO.CategoryDAO;
 import entities.Category;
 import javafx.scene.control.TextField;
+import scenes.Main;
 
 import java.sql.Connection;
 

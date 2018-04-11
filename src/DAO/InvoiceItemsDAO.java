@@ -39,6 +39,7 @@ public class InvoiceItemsDAO {
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1,id);
             statement.setInt(2, prodId);
+
             statement.executeUpdate();
             System.out.println("Lagt til i database!");
 

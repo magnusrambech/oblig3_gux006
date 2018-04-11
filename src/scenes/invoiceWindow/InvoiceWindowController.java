@@ -1,4 +1,4 @@
-package scenes;
+package scenes.invoiceWindow;
 
 import DAO.*;
 import entities.Address;
@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import scenes.Main;
 
 import javax.annotation.Resource;
 import java.io.FileNotFoundException;

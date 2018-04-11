@@ -1,30 +1,20 @@
 package scenes;
 
-import DAO.ConnectionDAO;
-import DAO.InvoiceDAO;
-import entities.Invoice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.List;
 
 
 public class sampleController {
     public void openInvoiceWindow(ActionEvent actionEvent) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InvoiceWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("invoiceWindow/InvoiceWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Invoice");
@@ -41,7 +31,7 @@ public class sampleController {
     //Vinduer for deloppgave 2
     public void openCreateCustomerWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateCustomerWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createCustomer/CreateCustomerWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create new customer");
@@ -56,7 +46,7 @@ public class sampleController {
     public void openCreateAddressWindow(ActionEvent actionEvent){
         System.out.println("test1");
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateAddressWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAddress/CreateAddressWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create new Address");
@@ -72,7 +62,7 @@ public class sampleController {
     public void openCreateProductWindow(ActionEvent actionEvent){
         System.out.println("test2");
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProductWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createProduct/CreateProductWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create new Product");
@@ -87,7 +77,7 @@ public class sampleController {
     public void openCreateCategoryWindow(ActionEvent actionEvent){
         System.out.println("test3");
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateCategoryWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createCategory/CreateCategoryWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create new Category");
@@ -101,7 +91,7 @@ public class sampleController {
     }
     public void openCreateInvoiceWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateInvoiceWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createInvoice/CreateInvoiceWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create new Invoice");
@@ -117,7 +107,7 @@ public class sampleController {
     //Vinduer for deloppgave 3
     public void openEditCustomersWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditCustomerWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editCustomers/EditCustomerWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Edit Customers");
@@ -131,7 +121,7 @@ public class sampleController {
     }
     public void openEditAddressesWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAddressesWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editAddresses/EditAddressesWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Edit Addresses");
@@ -145,7 +135,7 @@ public class sampleController {
     }
     public void openEditProductsWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditProductsWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editProducts/EditProductsWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Edit Products");
@@ -159,7 +149,7 @@ public class sampleController {
     }
     public void openEditCategoriesWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditCategoriesWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editCategories/EditCategoriesWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Edit Categories");
@@ -173,7 +163,7 @@ public class sampleController {
     }
     public void openEditInvoicesWindow(ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditInvoicesWindow.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("editInvoices/EditInvoicesWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Edit Invoices");
