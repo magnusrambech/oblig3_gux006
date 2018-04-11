@@ -36,10 +36,7 @@ public class Main extends Application {
         SQLExecutor readSql = new SQLExecutor(fileToRead, conn);
 
         launch(args);
+        conn.close();
+        System.out.println("Connection closed");
     }
-
-    public Connection getConnection(){
-        return conn;
-    }
-
 }
