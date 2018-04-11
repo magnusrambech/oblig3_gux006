@@ -26,7 +26,7 @@
         <TextField fx:id="updateCustomerIdFld" layoutX="233.0" layoutY="457.0" prefHeight="25.0" prefWidth="39.0" />
         <Button layoutX="231.0" layoutY="535.0" mnemonicParsing="false" onAction="#commitChanges" text="Update" />
       <Label layoutX="294.0" layoutY="98.0" text="Dato" />
-      <DatePicker fx:id="updateDateFld" layoutX="233.0" layoutY="496.0" prefHeight="25.0" prefWidth="149.0" />
+      <DatePicker fx:id="updateDateFld" layoutX="233.0" layoutY="496.0" prefHeight="25.0" prefWidth="113.0" />
       <Label layoutX="152.0" layoutY="461.0" text="Customer ID" />
       <Label layoutX="207.0" layoutY="433.0" text="ID" />
       <Label fx:id="updateIdLbl" layoutX="234.0" layoutY="433.0" text="ID" />
