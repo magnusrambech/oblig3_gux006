@@ -18,6 +18,9 @@ public class CreateProductWindowController {
     public Connection conn = Main.conn;
     ProductDAO prodDao;
 
+    /**
+     * Oppretter nytt produkt basert på hva som er skrevet i tekstfeltene
+     */
     public void createProduct(){
         Product product = new Product();
         product.setId(Integer.parseInt(newProdIdFld.getText()));

@@ -21,9 +21,7 @@ public class EditCustomerWindowController {
     public TextField updateAddressLbl;
     public TextField updatePhoneLbl;
     public TextField updateBillingLbl;
-
     public VBox customerVBox;
-
 
     Connection conn = Main.conn;
     CustomerDAO custDAO = new CustomerDAO(conn);
@@ -31,6 +29,10 @@ public class EditCustomerWindowController {
     public void initialize(){
         listAllCustomers();
     }
+
+    /**
+     * Lager en liste over alle kundene i databasen
+     */
     public void listAllCustomers(){
         //Nullstiller listen til å begynne med
         customerVBox.getChildren().clear();
@@ -40,6 +42,11 @@ public class EditCustomerWindowController {
             listCustomer(e);
         }
     }
+
+    /**
+     * Legger til en kunde på listen
+     * @param c kunden som legges til
+     */
     public void listCustomer(Customer c){
         // Lager nye labels for all customer info
         Label idLbl = new Label();
@@ -86,6 +93,10 @@ public class EditCustomerWindowController {
 
         customerVBox.getChildren().add(hBox);
     }
+
+    /**
+     * Utfører endringer i databasen basert på brukerinput
+     */
     public void commitChanges(){
         Customer customer = new Customer();
         customer.setName(updateNameLbl.getText());

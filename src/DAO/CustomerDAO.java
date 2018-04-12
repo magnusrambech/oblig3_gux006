@@ -16,7 +16,6 @@ public class CustomerDAO {
         this.conn = conn;
     }
 
-
     public Customer findCustomerById(int id){
         Customer custToReturn = new Customer();
 
@@ -38,6 +37,10 @@ public class CustomerDAO {
         return custToReturn;
     }
 
+    /**
+     * Legger til en ny kunde i databasen
+     * @param c kunden som skal legges til
+     */
     public void insertNewCustomer(Customer c){
         String name = c.getName();
         int id = c.getCustId();
@@ -62,6 +65,10 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Henter alle kundene i databasen
+     * @return ArrayList som inneholder alle kunder.
+     */
     public ArrayList<Customer> findAllCustomers(){
         ArrayList<Customer> customers = new ArrayList<Customer>();
         try {
@@ -82,6 +89,10 @@ public class CustomerDAO {
         return customers;
     }
 
+    /**
+     * Endrer en kunde i databasen
+     * @param c kunden som endres
+     */
     public void alterCustomer(Customer c){
         String sql = "UPDATE customer  SET " +
                 "customer_name = ? , " +

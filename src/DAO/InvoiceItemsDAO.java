@@ -14,6 +14,11 @@ public class InvoiceItemsDAO {
         this.conn = conn;
     }
 
+    /**
+     * Henter ut alle produkt id'ene som finnes på en invoice
+     * @param invoiceID invoices hvor produktene oppstår
+     * @return liste over alle produkt id'er
+     */
     public ArrayList<Integer> findProductsOnInvoice(int invoiceID){
         ArrayList<Integer> prodIDList = new ArrayList<Integer>();
 
@@ -29,6 +34,10 @@ public class InvoiceItemsDAO {
         return prodIDList;
     }
 
+    /**
+     * Legger en ny invoice_item i databasen
+     * @param i invoice_item som skal legges til
+     */
     public void insertNewInvoiceItems(InvoiceItem i){
         int id = i.getInvoiceId();
         int prodId = i.getProductId();

@@ -17,6 +17,9 @@ public class CreateAddressWindowController {
     public Connection conn = Main.conn;
     AddressDAO addDao;
 
+    /**
+     * Oppretter ny addresse basert på hva som er skrevet i tekstfeltene
+     */
     public void createAddress(){
         Address address = new Address();
         address.setId(Integer.parseInt(newAddIdFld.getText()));

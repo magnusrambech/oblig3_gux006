@@ -20,7 +20,6 @@ public class EditProductsWindowController {
     public TextField updateDescLbl;
     public TextField updatePriceLbl;
     public TextField updateCatLbl;
-
     public VBox productVBox;
 
     Connection conn = Main.conn;
@@ -30,6 +29,9 @@ public class EditProductsWindowController {
         listAllProducts();
     }
 
+    /**
+     * Lager en liste over alle produkter i databasen
+     */
     public void listAllProducts(){
         // Nullstiller listen fra forrige visning
         productVBox.getChildren().clear();
@@ -39,6 +41,11 @@ public class EditProductsWindowController {
             listProduct(p);
         }
     }
+
+    /**
+     * legger til et produkt i listen.
+     * @param p
+     */
     public void listProduct(Product p){
         // Lager nye labels for all product info
         Label idLbl = new Label();
@@ -84,6 +91,9 @@ public class EditProductsWindowController {
         productVBox.getChildren().add(hBox);
     }
 
+    /**
+     * Utfører endringer i databasen basert på brukerinput.
+     */
     public void commitChanges(){
         Product product = new Product();
         product.setId(Integer.parseInt(updateIdLbl.getText()));

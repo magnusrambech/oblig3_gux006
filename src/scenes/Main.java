@@ -35,7 +35,10 @@ public class Main extends Application {
         String fileToRead =  "oblig3v1_database.sql";
         SQLExecutor readSql = new SQLExecutor(fileToRead, conn);
 
+        //Laster grafisk grensesnitt
         launch(args);
+
+        //Stenger tilkobling mot databasen når programmet lukkes
         conn.close();
         System.out.println("Connection closed");
     }

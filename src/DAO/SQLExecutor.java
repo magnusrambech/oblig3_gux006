@@ -14,6 +14,7 @@ public class SQLExecutor {
     File file;
     Connection conn = null;
     InputStream in = null;
+
     public SQLExecutor(String fileName, Connection conn) throws FileNotFoundException, SQLException {
         this.file = new File(fileName);
         this.conn = conn;
@@ -21,6 +22,10 @@ public class SQLExecutor {
         createDBfromFile();
     }
 
+    /**
+     * Leser fra SQL-fil og utfører statements mot sqlite database. Utføres ikke hvis databasen allerede er lest inn
+     * @throws SQLException
+     */
     public void createDBfromFile() throws SQLException {
         //Sjekker om databasen allerede er laget. Hviss, return
         if(alreadyFilled()){
@@ -55,7 +60,10 @@ public class SQLExecutor {
             if (st != null) st.close();
         }
     }
-
+    /**
+     * Sjekker om databasen allerede er lastet inn.
+     * @return
+     */
     public boolean alreadyFilled(){
         try{
             String sql = "SELECT * FROM address,category,customer,invoice,invoice_items,product";

@@ -29,6 +29,9 @@ public class EditAddressesWindowController {
         listAllAddresses();
     }
 
+    /**
+     * Lister opp alle addressene i databasen i en boks på grensesnittet
+     */
     public void listAllAddresses(){
         //Nullstieller listen til å begynne med
         addressesVBox.getChildren().clear();
@@ -39,6 +42,11 @@ public class EditAddressesWindowController {
             listAddress(a);
         }
     }
+
+    /**
+     * Lister opp en adresse
+     * @param a addressen som skal listes opp
+     */
     public void listAddress(Address a){
         // Lager nye labels for all addresse info
         Label idLbl = new Label();
@@ -86,6 +94,10 @@ public class EditAddressesWindowController {
         addressesVBox.getChildren().add(hBox);
 
     }
+
+    /**
+     * Utfører endringer mot databasen, basert på brukerinput
+     */
     public void commitChanges(){
         Address address = new Address();
         address.setId(Integer.parseInt(updateIdLbl.getText()));

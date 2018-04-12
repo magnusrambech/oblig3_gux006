@@ -26,6 +26,9 @@ public class EditCategoriesWindowController {
         listAllCategories();
     }
 
+    /**
+     * Viser alle kategorier i en liste
+     */
     public void listAllCategories(){
         //Nullsteiller listen fra forrige visning
         categoryVBox.getChildren().clear();
@@ -35,6 +38,11 @@ public class EditCategoriesWindowController {
             listCategory(c);
         }
     }
+
+    /**
+     * Legger til en kategori på listen
+     * @param c kategorien som skal vises
+     */
     public void listCategory(Category c){
         //Lager nye labels for all info om en category
         Label idLbl = new Label();
@@ -67,6 +75,10 @@ public class EditCategoriesWindowController {
         categoryVBox.getChildren().add(hBox);
 
     }
+
+    /**
+     * Utfører endringer i databasen basert på brukerinput
+     */
     public void commitChanges(){
         Category category = new Category();
         category.setId(Integer.parseInt(updateIdLbl.getText()));

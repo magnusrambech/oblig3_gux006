@@ -12,7 +12,11 @@ public class AddressDAO {
         this.conn = connection;
     }
 
-
+    /**
+     * Lager et nytt Address-objekt basert på Id
+     * @param id til addressen
+     * @return Address-objekt
+     */
     public Address createAddressEntityFromId(int id) {
         Address currAdd = new Address();
         try{
@@ -32,6 +36,11 @@ public class AddressDAO {
 
         return currAdd;
     }
+
+    /**
+     * Legger til en en addresse i databasen
+     * @param a Addressen som skal legges i databasen
+     */
     public void insertNewAddress(Address a){
         String streetName = a.getStreetName();
         int id = a.getId();
@@ -55,6 +64,11 @@ public class AddressDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Henter ut alle addressene i databasen og lager addresse-objekter.
+     * @return ArrayList over alle addressene
+     */
     public ArrayList<Address> findAllAddresses(){
         ArrayList<Address> addresses = new ArrayList<Address>();
 
@@ -76,6 +90,10 @@ public class AddressDAO {
         return addresses;
     }
 
+    /**
+     * Endrer en adresse i databasen
+     * @param a addressen som endres
+     */
     public void alterAddress(Address a){
         String sql ="UPDATE address SET " +
                 "address_id = ? , " +

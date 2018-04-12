@@ -15,6 +15,9 @@ public class CreateCategoryWindowController {
     public Connection conn = Main.conn;
     CategoryDAO catDao;
 
+    /**
+     * Oppretter ny kategori basert på hva som er skrevet i tekstfeltene
+     */
     public void createCategory(){
         Category category = new Category();
         category.setId(Integer.parseInt(newCatIdFld.getText()));

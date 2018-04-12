@@ -20,7 +20,6 @@ public class sampleController {
             stage.setTitle("Invoice");
             stage.setScene(new Scene(root1));
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Can't load new window");
@@ -44,7 +43,6 @@ public class sampleController {
         }
     }
     public void openCreateAddressWindow(ActionEvent actionEvent){
-        System.out.println("test1");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAddress/CreateAddressWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -60,7 +58,6 @@ public class sampleController {
 
     }
     public void openCreateProductWindow(ActionEvent actionEvent){
-        System.out.println("test2");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createProduct/CreateProductWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -75,7 +72,6 @@ public class sampleController {
         }
     }
     public void openCreateCategoryWindow(ActionEvent actionEvent){
-        System.out.println("test3");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createCategory/CreateCategoryWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();

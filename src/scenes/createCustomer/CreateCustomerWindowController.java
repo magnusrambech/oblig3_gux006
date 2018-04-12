@@ -17,6 +17,9 @@ public class CreateCustomerWindowController {
     Connection conn = Main.conn;
     CustomerDAO custDao;
 
+    /**
+     * Oppretter ny kunde basert på hva som er skrevet i tekstfeltene
+     */
     public void createCustomer(){
         Customer customer = new Customer();
         customer.setName( newCustNameFld.getText());

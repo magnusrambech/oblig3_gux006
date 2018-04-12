@@ -33,6 +33,9 @@ public class CreateInvoiceWindowController {
    public InvoiceDAO invDao;
    public InvoiceItemsDAO invItemDao;
 
+    /**
+     * Oppretter ny invoice basert på hva som er skrevet i tekstfeltene
+     */
    public void createInvoice(){
        Invoice invoice = new Invoice();
        invoice.setId(Integer.parseInt(newInvIdFld.getText()));

@@ -133,7 +133,7 @@ public class InvoiceWindowController {
     public void findInvoiceIds(){
         ArrayList<Integer> ids = new ArrayList<Integer>();
         InvoiceDAO idDAO = new InvoiceDAO(conn);
-        List<Invoice> invoices = idDAO.createInvoiceEntities();
+        ArrayList<Invoice> invoices = idDAO.findAllInvoices();
         Iterator iterator = invoices.iterator();
         while(iterator.hasNext()){
             Invoice invoice = (Invoice)iterator.next();

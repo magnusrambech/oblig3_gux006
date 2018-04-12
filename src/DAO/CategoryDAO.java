@@ -9,12 +9,15 @@ import java.util.List;
 
 public class CategoryDAO {
     public Connection conn;
-
-
     public CategoryDAO(Connection conn){
         this.conn = conn;
     }
 
+    /**
+     * Henter ut en kategori fra databasen, basert på ID
+     * @param id id'en til kategorien som hentes ut
+     * @return Category-objekt
+     */
     public Category createCategoryFromId(int id){
         Category currentCat = new Category();
         try{
@@ -32,6 +35,11 @@ public class CategoryDAO {
 
         return currentCat;
     }
+
+    /**
+     * Legger til en ny kategori i databasen
+     * @param c kategorien som skal legges til
+     */
     public void insertNewCategory(Category c){
         int id = c.getId();
         String name = c.getName();
@@ -50,6 +58,11 @@ public class CategoryDAO {
         }
 
     }
+
+    /**
+     * Henter ut alle kategoriene i databasen
+     * @return alle kategoriene i en ArrayList
+     */
     public ArrayList<Category> findAllCategories(){
         ArrayList<Category> categories = new ArrayList<Category>();
         try{

@@ -31,6 +31,10 @@ public class EditInvoicesWindowController {
     public void initialize(){
         listAllInvoices();
     }
+
+    /**
+     * Setter opp en liste over alle invoicer i databasen
+     */
     public void listAllInvoices(){
         //Nullstiller listen fra forrige visning
         invoiceVBox.getChildren().clear();
@@ -41,6 +45,10 @@ public class EditInvoicesWindowController {
         }
     }
 
+    /**
+     * Legger til en invoice på listen
+     * @param i invoicen som legges til
+     */
     public void listInvoice(Invoice i){
         //Lager nye labels for all invoice info
         Label idLbl = new Label();
@@ -80,6 +88,9 @@ public class EditInvoicesWindowController {
 
     }
 
+    /**
+     * Utfører endringer i databasen basert på brukerinput
+     */
     public void commitChanges(){
         Invoice invoice = new Invoice();
         invoice.setId(Integer.parseInt(updateIdLbl.getText()));

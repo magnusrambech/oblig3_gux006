@@ -13,30 +13,11 @@ public class InvoiceDAO {
     public InvoiceDAO(Connection conn) {
         this.conn = conn;
     }
-
-    public List<Invoice> createInvoiceEntities() {
-        List<Invoice> invoices = new LinkedList<Invoice>();
-        Invoice currInvoice;
-        try {
-            Statement state = conn.createStatement();
-            ResultSet rs = state.executeQuery("SELECT * FROM invoice");
-
-            while (rs.next()) {
-                currInvoice = new Invoice();
-
-                currInvoice.setId(rs.getInt("invoice_id"));
-                currInvoice.setCustId(rs.getInt("customer"));
-                currInvoice.setDate(rs.getString("dato"));
-
-                invoices.add(currInvoice);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return invoices;
-    }
-
+    /**
+     * Henter ut en invoice fra databasen, basert på ID
+     * @param id id'en på invoicen som hentes ut
+     * @return invoice-objekt
+     */
     public Invoice createInvoiceFromId(int id) {
         Invoice currInvoice = new Invoice();
         try {
@@ -53,6 +34,11 @@ public class InvoiceDAO {
         }
         return currInvoice;
     }
+
+    /**
+     * Legger til en ny invoice i databasen
+     * @param i invoicen som skal legges til
+     */
     public void insertNewInvoice(Invoice i){
         int id = i.getId();
         int custId = i.getCustId();
@@ -73,6 +59,11 @@ public class InvoiceDAO {
         }
 
     }
+
+    /**
+     * Henter ut alle invoicene i databasen
+     * @return liste over alle invoicer
+     */
     public ArrayList<Invoice> findAllInvoices(){
         ArrayList<Invoice> invoices = new ArrayList<Invoice>();
         try{
@@ -90,6 +81,11 @@ public class InvoiceDAO {
         }
         return invoices;
     }
+
+    /**
+     * Endrer en invoice i databasen
+     * @param i invoicen som skal endres
+     */
     public void alterInvoice(Invoice i){
         String sql = "UPDATE invoice SET " +
                 "invoice_id = ? , " +

@@ -15,6 +15,12 @@ import java.util.Scanner;
 public class ConnectionDAO implements ConnectionDAOIF{
     Connection conn = null;
 
+    /**
+     * Oppretter en tilkobling mot databasen.
+     * @param dbname databasen som skal kobles opp.
+     * @throws FileNotFoundException
+     * @throws SQLException
+     */
     public ConnectionDAO(String dbname) throws FileNotFoundException, SQLException {
         try {
             String url = "jdbc:sqlite:C:/SQLite/db/" + dbname;

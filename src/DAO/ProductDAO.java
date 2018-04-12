@@ -11,6 +11,12 @@ public class ProductDAO {
     public ProductDAO(Connection conn){
         this.conn = conn;
     }
+
+    /**
+     * Lager et produkt-objekt basert på ID i database
+     * @param id id til produkt
+     * @return produkt-objekt
+     */
     public Product createProductEntitiesFromID(int id){
 
         Product currProd = new Product();
@@ -31,6 +37,11 @@ public class ProductDAO {
         }
         return currProd;
     }
+
+    /**
+     * Legger til et nytt produkt i databasen
+     * @param p produktet som skal legges til
+     */
     public void insertNewProduct(Product p){
         String name = p.getName();
         int id = p.getId();
@@ -54,6 +65,11 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Henter ut alle produkter i databasen
+     * @return ArrayList over alle produktene
+     */
     public ArrayList<Product> findAllProducts(){
         ArrayList<Product> products = new ArrayList<Product>();
         try{
@@ -74,6 +90,11 @@ public class ProductDAO {
         }
         return products;
     }
+
+    /**
+     * Enderer et produkt i databasen
+     * @param p produktet som skal endres
+     */
     public void alterProduct(Product p){
         String sql = "UPDATE product SET " +
                 "product_id = ? , " +
