@@ -30,7 +30,7 @@ public class Main extends Application {
     public static void main(String[] args) throws FileNotFoundException, SQLException {
 
         // Kobler opp mot sqlite database og skriver sqlfilen til database.
-        ConnectionDAO connDao = new ConnectionDAO("ryddig.db");
+        ConnectionDAO connDao = new ConnectionDAO("webshop.db");
         conn = connDao.getConnection();
         String fileToRead =  "oblig3v1_database.sql";
         SQLExecutor readSql = new SQLExecutor(fileToRead, conn);

@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class sampleController {
     public void openInvoiceWindow(ActionEvent actionEvent) {
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("invoiceWindow/InvoiceWindow.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
